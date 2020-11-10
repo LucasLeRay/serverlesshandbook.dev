@@ -34,7 +34,13 @@ const resolvers = {
   },
 }
 
-const server = new ApolloServer({ typeDefs: schema, resolvers })
+const server = new ApolloServer({
+  typeDefs: schema,
+  resolvers,
+  playground: {
+    endpoint: '/dev/graphql',
+  },
+})
 
 export const handler = server.createHandler({
   cors: {
